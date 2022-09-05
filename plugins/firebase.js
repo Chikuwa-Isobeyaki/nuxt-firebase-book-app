@@ -14,4 +14,9 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
+
+//firebaseを他のファイルで使えるよう設定
+export default ( context, inject) => {
+  inject('firebase', firebaseApp)
+}
