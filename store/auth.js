@@ -1,6 +1,7 @@
 import {
   getAuth,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  signOut
 } from 'firebase/auth'
 
 export const state = () => ({
@@ -35,7 +36,22 @@ export const actions = {
       .catch( e => {
         alert(e.message)
         console.error('error:', e) //eslint-disable-line
-      } )
+      })
+  },
+  async logout( {commit} ){
+    const auth = getAuth(this.$firebase)
+    await signOut(auth)
+    .then( userCredential => {
+      commit('setLoginState', false)
+      commit('setUserUid', '')
+      commit('setEmail', '')
+      console.log('ログアウトOK!!') //eslint-disable-line
+      this.$router.push('/book')
+    })
+    .catch( e => {
+      alert(e.message)
+      console.error('error:', e) //eslint-disable-line
+    })
   }
 }
 
