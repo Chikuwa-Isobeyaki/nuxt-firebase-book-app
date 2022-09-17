@@ -2,7 +2,6 @@
   <div>
     <v-navigation-drawer
       v-model="drawer"
-      :mini-variant="miniVariant"
       fixed
       app
     >
@@ -27,6 +26,7 @@
       </v-list>
     </v-navigation-drawer>
 
+
     <v-app-bar fixed app>
       <div v-show="isLoggedIn">
         <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
@@ -39,28 +39,25 @@
 
 <script>
 export default {
-    data() {
-    return {
-      drawer: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
-        },
-        {
-          title: 'Logout',
-          to: '/auth/logout'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
+    data(){
+      return {
+        drawer: false,
+        items: [
+          {
+            icon: 'mdi-apps',
+            title: 'Welcome',
+            to: '/',
+          },
+          {
+            icon: 'mdi-chart-bubble',
+            title: 'Inspire',
+            to: '/inspire',
+          },
+          {
+            title: 'Logout',
+            to: '/auth/logout'
+          }
+        ],
       title: 'bookApp',
     }
   },

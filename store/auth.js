@@ -46,7 +46,7 @@ export const actions = {
       commit('setUserUid', '')
       commit('setEmail', '')
       console.log('ログアウトOK!!') //eslint-disable-line
-      this.$router.push('/book')
+      this.$router.push('/auth/login')
     })
     .catch( e => {
       alert(e.message)
