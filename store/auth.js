@@ -52,6 +52,12 @@ export const actions = {
       alert(e.message)
       console.error('error:', e) //eslint-disable-line
     })
+  },
+  addUserInfo({ commit }, payload){
+    console.log(payload) //eslint-disable-line
+    commit('setLoginState', true)
+    commit('setUserUid', payload.uid)
+    commit('setEmail', payload.email)
   }
 }
 

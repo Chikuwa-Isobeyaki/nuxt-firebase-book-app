@@ -65,6 +65,9 @@ export default {
     isLoggedIn(){
       return this.$store.getters['auth/getLoggedIn']
     }
+  },
+  mounted(){
+    this.drawer = false
   }
 }
 </script>
