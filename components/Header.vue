@@ -28,7 +28,9 @@
     </v-navigation-drawer>
 
     <v-app-bar fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <div v-show="isLoggedIn">
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      </div>
       <v-toolbar-title v-text="title" />
       <v-spacer />
     </v-app-bar>
@@ -62,6 +64,11 @@ export default {
       title: 'bookApp',
     }
   },
+  computed: {
+    isLoggedIn(){
+      return this.$store.getters['auth/getLoggedIn']
+    }
+  }
 }
 </script>
 
